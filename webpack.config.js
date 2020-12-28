@@ -1,11 +1,15 @@
-const base = require( "./webpack.config.base.js");
+const base = require("./webpack.config.base.js");
 module.exports = {
     mode: 'development',
     ...base,
     module: {
-        rules: [{
-            test: /\.css$/i,
-            use: ["style-loader", "css-loader"],
-        }, ]
+
+        rules: [
+            ...base.module.rules,
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+        ]
     },
 };
