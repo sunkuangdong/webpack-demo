@@ -18,7 +18,20 @@ module.exports = {
         }),
     ],
     module: {
-        rules: [
+        rules: [{
+                test: /\.(png|jpe?g|gif)$/i,
+                loader: 'file-loader',
+            },
+            {
+                test: /\.styl$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "stylus-loader",
+                    },
+                ],
+            },
             {
                 test: /\.less$/,
                 use: [
